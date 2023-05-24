@@ -27,7 +27,7 @@ public class Octal {
     }
 
     public static String convertToText(String octal) {
-        String[] octalValues = octal.split("\\|");
+        String[] octalValues = octal.split("\\s+");
         String text = "";
 
         for (String octalValue : octalValues) {
@@ -35,9 +35,7 @@ public class Octal {
 
             for (int i = 0; i < octalValue.length(); i++) {
                 char digit = octalValue.charAt(i);
-                int octalDigit = Character.getNumericValue(digit);
-
-                charValue = (charValue << 3) | octalDigit;
+                charValue = charValue * 8 + (digit - '0');
             }
 
             text += (char) charValue;
