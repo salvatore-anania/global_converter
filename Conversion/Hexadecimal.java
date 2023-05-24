@@ -3,7 +3,7 @@ package Conversion;
 public class Hexadecimal {
 
     public static String convertToHex(String str) {
-        String hexString = "";
+        String hexString = "h";
         
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
@@ -19,7 +19,7 @@ public class Hexadecimal {
     }
 
     public static String convertToText(String hex) {
-        String ascii = "h";
+        String ascii = "";
 
         for (int i = 0; i < hex.length(); i += 3) {
             String hexPair = hex.substring(i, i + 2);
