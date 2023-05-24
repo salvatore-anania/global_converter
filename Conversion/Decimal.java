@@ -3,7 +3,7 @@ package Conversion;
 public class Decimal {
 
     public static String convertToDecimal(String str) {
-        String decimalString = "";
+        String decimalString = "d";
 
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
@@ -20,7 +20,7 @@ public class Decimal {
 
     public static String convertToText(String decimal) {
         String[] decimalValues = decimal.split("\\|");
-        String text = "d";
+        String text = "";
 
         for (String decimalValue : decimalValues) {
             int charValue = 0;

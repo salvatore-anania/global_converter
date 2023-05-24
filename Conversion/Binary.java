@@ -33,17 +33,16 @@ public class Binary {
         return binary;
     }
 
-    public static String convertToText(String binary) {
-        String[] binaryValues = binary.split("\\|");
+    public static String convertToText(String octal) {
+        String[] octalValues = octal.split("\\s+");
         String text = "";
 
-        for (String binaryValue : binaryValues) {
+        for (String octalValue : octalValues) {
             int charValue = 0;
 
-            for (int i = 0; i < binaryValue.length(); i++) {
-                char bit = binaryValue.charAt(i);
-
-                charValue = (charValue << 1) | (bit - '0');
+            for (int i = 0; i < octalValue.length(); i++) {
+                char digit = octalValue.charAt(i);
+                charValue = charValue * 8 + (digit - '0');
             }
 
             text += (char) charValue;

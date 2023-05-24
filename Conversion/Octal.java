@@ -2,16 +2,24 @@ package Conversion;
 
 public class Octal {
     
-    public static String convertToOctal(String str) {
+    public static String convertToOctal(String text) {
         String octalString = "o";
 
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            String octal = Integer.toOctalString((int) ch);
-            if(i!=str.length()-1){
-                octalString += octal + "|";
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            int charValue = (int) ch;
+            String octalValue = "";
+
+            while (charValue > 0) {
+                int remainder = charValue % 8;
+                octalValue = remainder + octalValue;
+                charValue /= 8;
+            }
+
+            if(i!=text.length()-1){
+                octalString += octalValue + "|";
             }else{
-                octalString += octal;
+                octalString += octalValue;
             }
         }
 
